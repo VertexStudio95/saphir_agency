@@ -1,26 +1,115 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-base: #0f172a;
+  --color-base-light: #162032;
+  --color-surface: #1e293b;
+  --color-surface-hover: #243147;
+  --color-rim: #334155;
+  --color-rim-light: #475569;
+  --color-gold: #c9a84c;
+  --color-gold-light: #e2c47a;
+  --color-gold-dim: #9a7a30;
+  --color-ink: #f1f5f9;
+  --color-ink-2: #94a3b8;
+  --color-ink-3: #475569;
+
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-inter);
+
+  --radius-card: 0.75rem;
+
+  --animate-fade-in: fade-in 0.6s ease forwards;
+  --animate-slide-up: slide-up 0.6s ease forwards;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.15); }
+  50%       { box-shadow: 0 0 40px rgba(201, 168, 76, 0.35); }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 768px) {
+    body { cursor: auto; }
+  }
+
+  ::selection {
+    background-color: #c9a84c;
+    color: #0f172a;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c9a84c;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .gold-gradient {
+    background: linear-gradient(135deg, #c9a84c 0%, #e2c47a 50%, #c9a84c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-border-glow {
+    box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.3), 0 0 32px rgba(201, 168, 76, 0.1);
+  }
+
+  .gold-border-glow-hover:hover {
+    box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.6), 0 0 40px rgba(201, 168, 76, 0.2);
+  }
+
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
 }
