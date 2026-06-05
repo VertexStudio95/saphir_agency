@@ -169,7 +169,7 @@ export default function Hero() {
             className="w-1.5 h-1.5 rounded-full bg-gold inline-block"
           />
           <span className="text-[10px] font-mono tracking-[0.35em] uppercase text-ink-3">
-            Saphir Agency — Studio Digital
+            M&M Agency — Studio Digital
           </span>
         </div>
         <div className="hidden lg:flex items-center gap-6 text-[10px] font-mono tracking-[0.22em] uppercase text-ink-3">
@@ -215,7 +215,7 @@ export default function Hero() {
                 textShadow:
                   "0 2px 20px rgba(15,23,42,0.9), 0 8px 60px rgba(15,23,42,0.7)",
               }}>
-              Saphir
+              M&M
             </motion.h1>
           </div>
 

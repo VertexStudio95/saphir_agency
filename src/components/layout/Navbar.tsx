@@ -69,7 +69,7 @@ export default function Navbar() {
           href="/"
           className="font-display text-xl font-bold tracking-wider text-ink group cursor-none"
         >
-          <span className="text-gold">Saphir</span>
+          <span className="text-gold">M&M</span>
           <span className="text-ink ml-1.5 group-hover:text-gold transition-colors duration-300">
             Agency
           </span>
